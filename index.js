@@ -19,6 +19,7 @@ const CAT_IMAGE = nativeImage.createFromPath(
 );
 
 let tray = null;
+let forceQuit = false;
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -30,8 +31,10 @@ const createWindow = () => {
     win.loadURL("https://google.com.br");
 
     win.on("close", (event) => {
-        event.preventDefault();
-        win.hide();
+        if (!forceQuit) {
+            event.preventDefault();
+            win.hide();
+        }
     });
 
     return win;
@@ -56,4 +59,8 @@ app.whenReady().then(() => {
     tray.on("click", () => {
         win.show();
     });
+});
+
+app.on("before-quit", () => {
+    forceQuit = true;
 });
