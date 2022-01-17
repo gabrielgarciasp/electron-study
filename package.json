@@ -1,19 +1,19 @@
 {
     "name": "electron-study",
     "version": "1.0.0",
-    "description": "",
+    "description": "My hello world with electron",
     "main": "index.js",
     "scripts": {
         "start": "electron .",
-        "pack": "electron-builder --dir",
-        "dist": "electron-builder"
+        "pack": "electron-builder --dir --config build.config.json",
+        "dist": "electron-builder --config build.config.json"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/gabrielgarciasp/electron-study.git"
     },
     "keywords": [],
-    "author": "",
+    "author": "Gabriel Garcia",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/gabrielgarciasp/electron-study/issues"
@@ -23,22 +23,5 @@
         "electron": "^16.0.7",
         "electron-builder": "^22.14.5"
     },
-    "dependencies": {},
-    "build": {
-        "appId": "your.id",
-        "mac": {
-            "category": "your.app.category.type",
-            "icon": "./assets/icons/mac/icon.icns"
-        },
-        "win": {
-            "icon": "./assets/icons/win/icon.ico"
-        },
-        "linux": {
-            "icon": "./assets/icons/png"
-        },
-        "extraResources": [
-            "./assets/tray-image.png",
-            "./assets/window-image.png"
-        ]
-    }
+    "dependencies": {}
 }

@@ -1,0 +1,17 @@
+{
+    "appId": "your.id",
+    "mac": {
+        "category": "your.app.category.type",
+        "icon": "./assets/icons/mac/icon.icns"
+    },
+    "win": {
+        "icon": "./assets/icons/win/icon.ico"
+    },
+    "linux": {
+        "icon": "./assets/icons/png"
+    },
+    "extraResources": ["./assets/tray-image.png", "./assets/window-image.png"],
+    "nsis": {
+        "oneClick": true
+    }
+}
