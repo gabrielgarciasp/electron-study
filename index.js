@@ -18,6 +18,8 @@ const CAT_IMAGE = nativeImage.createFromPath(
     path.join(BASE_PATH_ASSETS, "tray-image.png")
 );
 
+const IS_MAC = process.platform === "darwin";
+
 let tray = null;
 let forceQuit = false;
 
@@ -33,7 +35,12 @@ const createWindow = () => {
     win.on("close", (event) => {
         if (!forceQuit) {
             event.preventDefault();
-            win.hide();
+
+            if (IS_MAC) {
+                win.minimize();
+            } else {
+                win.hide();
+            }
         }
     });
 
