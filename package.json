@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "start": "electron .",
-        "app:dir": "electron-builder --dir",
-        "app:dist": "electron-builder"
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder"
     },
     "repository": {
         "type": "git",
@@ -32,6 +32,9 @@
         },
         "win": {
             "icon": "./assets/icons/win/icon.ico"
+        },
+        "linux": {
+            "icon": "./assets/icons/png"
         },
         "extraResources": [
             "./assets/tray-image.png",
