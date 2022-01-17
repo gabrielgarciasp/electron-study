@@ -1,12 +1,21 @@
-const { app, BrowserWindow, Tray, Menu, shell } = require("electron");
+const {
+    app,
+    BrowserWindow,
+    Tray,
+    Menu,
+    shell,
+    nativeImage,
+} = require("electron");
 
+const DOG_ICON = nativeImage.createFromPath("dog.png");
+const CAT_ICON = nativeImage.createFromPath("cat.png");
 let tray = null;
 
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 1024,
         height: 800,
-        icon: "dog.png",
+        icon: DOG_ICON,
     });
 
     win.loadURL("https://google.com.br");
@@ -22,7 +31,7 @@ const createWindow = () => {
 app.whenReady().then(() => {
     const win = createWindow();
 
-    tray = new Tray("cat.png");
+    tray = new Tray(CAT_ICON);
     const contextMenu = Menu.buildFromTemplate([
         {
             label: "Link example",
