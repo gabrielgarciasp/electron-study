@@ -71,3 +71,7 @@ app.whenReady().then(() => {
 app.on("before-quit", () => {
     forceQuit = true;
 });
+
+app.setLoginItemSettings({
+    openAtLogin: true,
+});
