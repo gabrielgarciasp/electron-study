@@ -1,24 +1,41 @@
 {
-  "name": "electron-study",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "electron ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gabrielgarciasp/electron-study.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gabrielgarciasp/electron-study/issues"
-  },
-  "homepage": "https://github.com/gabrielgarciasp/electron-study#readme",
-  "devDependencies": {
-    "electron": "^16.0.7"
-  },
-  "dependencies": {}
+    "name": "electron-study",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "electron .",
+        "app:dir": "electron-builder --dir",
+        "app:dist": "electron-builder"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gabrielgarciasp/electron-study.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/gabrielgarciasp/electron-study/issues"
+    },
+    "homepage": "https://github.com/gabrielgarciasp/electron-study#readme",
+    "devDependencies": {
+        "electron": "^16.0.7",
+        "electron-builder": "^22.14.5"
+    },
+    "dependencies": {},
+    "build": {
+        "appId": "your.id",
+        "mac": {
+            "category": "your.app.category.type",
+            "icon": "./assets/icons/mac/icon.icns"
+        },
+        "win": {
+            "icon": "./assets/icons/win/icon.ico"
+        },
+        "extraResources": [
+            "./assets/tray-image.png",
+            "./assets/window-image.png"
+        ]
+    }
 }

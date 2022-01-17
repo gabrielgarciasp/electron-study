@@ -6,16 +6,25 @@ const {
     shell,
     nativeImage,
 } = require("electron");
+const path = require("path");
 
-const DOG_ICON = nativeImage.createFromPath("assets/icons/dog-original.png");
-const CAT_ICON = nativeImage.createFromPath("assets/icons/cat.png");
+const DEV = !app.isPackaged;
+const BASE_PATH_ASSETS = path.join(DEV ? "" : process.resourcesPath, "assets");
+
+const DOG_IMAGE = nativeImage.createFromPath(
+    path.join(BASE_PATH_ASSETS, "window-image.png")
+);
+const CAT_IMAGE = nativeImage.createFromPath(
+    path.join(BASE_PATH_ASSETS, "tray-image.png")
+);
+
 let tray = null;
 
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 1024,
         height: 800,
-        icon: DOG_ICON,
+        icon: DOG_IMAGE,
     });
 
     win.loadURL("https://google.com.br");
@@ -31,7 +40,7 @@ const createWindow = () => {
 app.whenReady().then(() => {
     const win = createWindow();
 
-    tray = new Tray(CAT_ICON);
+    tray = new Tray(CAT_IMAGE);
     const contextMenu = Menu.buildFromTemplate([
         {
             label: "Link example",
