@@ -7,8 +7,8 @@ const {
     nativeImage,
 } = require("electron");
 
-const DOG_ICON = nativeImage.createFromPath("dog.png");
-const CAT_ICON = nativeImage.createFromPath("cat.png");
+const DOG_ICON = nativeImage.createFromPath("assets/icons/dog-original.png");
+const CAT_ICON = nativeImage.createFromPath("assets/icons/cat.png");
 let tray = null;
 
 const createWindow = () => {
