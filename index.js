@@ -10,10 +10,6 @@ const path = require("path");
 
 const DEV = !app.isPackaged;
 const BASE_PATH_ASSETS = path.join(DEV ? "" : process.resourcesPath, "assets");
-
-const DOG_IMAGE = nativeImage.createFromPath(
-    path.join(BASE_PATH_ASSETS, "window-image.png")
-);
 const CAT_IMAGE = nativeImage.createFromPath(
     path.join(BASE_PATH_ASSETS, "tray-image.png")
 );
@@ -28,7 +24,6 @@ const createWindow = () => {
     win = new BrowserWindow({
         width: 1024,
         height: 800,
-        icon: DOG_IMAGE,
     });
 
     win.loadURL("https://google.com.br");

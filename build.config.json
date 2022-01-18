@@ -10,7 +10,7 @@
     "linux": {
         "icon": "./assets/icons/png"
     },
-    "extraResources": ["./assets/tray-image.png", "./assets/window-image.png"],
+    "extraResources": ["./assets/tray-image.png"],
     "nsis": {
         "oneClick": true
     }
