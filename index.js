@@ -20,11 +20,12 @@ const CAT_IMAGE = nativeImage.createFromPath(
 
 const IS_MAC = process.platform === "darwin";
 
+let win = null;
 let tray = null;
-let forceQuit = false;
+let forceQuit = false; // MacOS on close window with Cmd + Q
 
 const createWindow = () => {
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         width: 1024,
         height: 800,
         icon: DOG_IMAGE,
@@ -35,20 +36,13 @@ const createWindow = () => {
     win.on("close", (event) => {
         if (!forceQuit) {
             event.preventDefault();
-
-            if (IS_MAC) {
-                win.minimize();
-            } else {
-                win.hide();
-            }
+            win.hide();
         }
     });
-
-    return win;
 };
 
 app.whenReady().then(() => {
-    const win = createWindow();
+    createWindow();
 
     tray = new Tray(CAT_IMAGE);
     const contextMenu = Menu.buildFromTemplate([
@@ -68,8 +62,14 @@ app.whenReady().then(() => {
     });
 });
 
+// MacOS on close window with Cmd + Q
 app.on("before-quit", () => {
     forceQuit = true;
+});
+
+// MacOS show window after click in "x"
+app.on("activate", () => {
+    win.show();
 });
 
 app.setLoginItemSettings({
